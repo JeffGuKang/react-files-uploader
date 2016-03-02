@@ -1,0 +1,8 @@
+/src/
+/example/
+.gitignore
+.jscsrc
+.scss-lint.yml
+.travis.yml
+gulp.js
+coverage

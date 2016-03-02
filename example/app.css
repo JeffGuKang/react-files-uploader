@@ -1,0 +1,14 @@
+/* image upload */
+.button-close-modal{
+	opacity: 0.6;
+	color: #555;
+	background-position-x: -275px;
+	background-position-y: -25px;
+	width: 25px;
+	height: 25px;
+	top: 10px;
+	right: 10px;
+	position: absolute;
+	display: block;
+	cursor: pointer;
+}
