@@ -21,7 +21,7 @@ const customStyle = {
   }
 };
 
-var FileUpload = React.createClass({
+var FileUp = React.createClass({
   getInitialState: function() {
     return {
       hidden: true
@@ -66,19 +66,21 @@ var FileUpload = React.createClass({
 
   render: function() {
     return(
-        <Modal
-          isOpen={!this.state.hidden}
-          onRequestClose={this.closeModal}
-          style={customStyle}>
-          <span onClick={this.closeModal} className="sprite button-close-modal" />
-          <Dropzone className={this.props.className} onDrop={this.onDrop}>
-            <div>
-            {this.props.placeholder}
-            </div>
-          </Dropzone>
-        </Modal>
+        <div>
+          <Modal
+            isOpen={!this.state.hidden}
+            onRequestClose={this.closeModal}
+            style={customStyle}>
+              <span onClick={this.closeModal} className="sprite button-close-modal" />
+              <Dropzone className={this.props.className} onDrop={this.onDrop}>
+                <div>
+                  {this.props.placeholder}
+                </div>
+              </Dropzone>
+          </Modal>
+        </div>
       );
   }
 });
 
-module.exports = FileUpload;
+module.exports = FileUp;

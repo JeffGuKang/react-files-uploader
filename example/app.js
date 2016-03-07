@@ -1,6 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var FileUpload = require('../components/ReactFileUpload');
+var FileUp = require('../components/ReactFileUpload');
 
 var appElement = document.getElementById('example');
 
@@ -9,7 +9,6 @@ var App = React.createClass({
   getInitialState: function() {
     return {
       imgsrc: null,
-      type: _Type[0],
     };
   },
 
@@ -17,7 +16,7 @@ var App = React.createClass({
     e.preventDefault();
     if (file[0].type.match(/^image/)) {
       console.log('Image found: ' + file[0].name);
-      let reader = new FileReader();
+      var reader = new FileReader();
       reader.onload = () => {
         this.setState({imgsrc: reader.result});
       };
@@ -27,12 +26,18 @@ var App = React.createClass({
     }
   },
 
+  showModal: function() {
+    this.refs.upload.showModal();  
+  },
+
   render: function() {
     return (
       <div>
+        Hello<br />
+        <button onClick={this.showModal}>FileUpload</button>
         <img src={this.state.imgsrc}></img>
-        <FileUpload
-          ref="fileUpload"
+        <FileUp
+          ref="upload"
           onDrop={this.onDrop}
           placeholder="Choose or drag a file."
         />
