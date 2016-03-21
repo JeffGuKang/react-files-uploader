@@ -17,7 +17,9 @@ const customStyle = {
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
+    transform             : 'translate(-50%, -50%)',
+    width                 : '80%',
+    height                 : '70%',
   }
 };
 
@@ -30,7 +32,7 @@ var FileUp = React.createClass({
 
   getDefaultProps() {
     return {
-      placeholder: 'Choose or drag a file.'
+      insideText: 'Choose or drag a file.'
     };
   },
 
@@ -68,14 +70,15 @@ var FileUp = React.createClass({
     return(
         <div>
           <Modal
+            closeTimeoutMS={150}
             isOpen={!this.state.hidden}
             onRequestClose={this.closeModal}
             style={customStyle}>
-              <span onClick={this.closeModal} className="sprite button-close-modal" />
-              <Dropzone className={this.props.className} onDrop={this.onDrop}>
-                <div>
-                  {this.props.placeholder}
-                </div>
+              <span onClick={this.closeModal} className="button-close-modal"></span>
+              <Dropzone
+                className={this.props.classNameOfDropzone}
+                onDrop={this.onDrop}>
+                  <div>{this.props.insideText}</div>
               </Dropzone>
           </Modal>
         </div>

@@ -12,3 +12,32 @@
 	display: block;
 	cursor: pointer;
 }
+
+/* react modal */
+
+.ReactModal__Overlay {
+  -webkit-perspective: 600;
+  perspective: 600;
+  opacity: 0;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+  transition: opacity 200ms ease-out;
+}
+
+/* dropzone */
+.dropzone {
+	position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+	font-weight: 800;
+	font-size: 2.5em;
+	color: rgb(177, 177, 177);
+}
+
+.dropzone:hover {
+	cursor: pointer;
+}

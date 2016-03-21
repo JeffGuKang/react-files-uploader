@@ -31,10 +31,14 @@ var getProjectName = function() {
   return require('./package.json').name;
 };
 
+var reactifyES6 = function(file) {
+  return reactify(file, {'es6': true});
+};
+
 gulp.task('example', function() {
    browserify({
      entries: ['example/app.js'],
-     transform: [reactify],
+     transform: [reactifyES6],
      debug: true,
      cache: {}, packageCache: {}, fullPaths: true
    })
@@ -49,6 +53,10 @@ gulp.task('example', function() {
     // .pipe(uglify())
     .pipe(gulp.dest(PATH.DEST_SRC))
     .pipe(browserSync.stream({once: true}));
+
+    browserSync.init({
+        server: './'
+    });
 
 
     // gulp.src("/example/*.html", {base: "/example"})
@@ -65,64 +73,3 @@ gulp.task('browser-sync', function() {
     gulp.watch("example/*.html").on('change', browserSync.reload);
     gulp.watch("example/*.js", ['example']).on('change', browserSync.reload);
 });
-
-
-//
-// /** copy original HTML and style to distribution folder. */
-// gulp.task('copy', function(){
-//   gulp.src(path.HTML, {base:path.SOURCE})
-//     .pipe(watch(path.SOURCE, {base:path.SOURCE}))
-//     .pipe(gulp.dest(path.DEST));
-//
-//   gulp.src(path.STYLE, {base:path.SOURCE_STYLE})
-//     .pipe(watch(path.SOURCE_STYLE, {base:path.SOURCE_STYLE}))
-//     .pipe(gulp.dest(path.DEST_STYLE));
-// });
-//
-// /** copy images */
-// gulp.task('copyImgs', function() {
-//    gulp.src('./app/img')
-//    .pipe(gulp.dest('./img'))
-// });
-//
-//
-// watchify.args.debug = true;
-// var bundler = watchify(browserify(path.ENTRY_POINT, watchify.args));
-//
-// /** Babel transform. JSX to JS */
-// bundler.transform(babelify.configure({
-//     sourceMapRelative: path.JSX
-// }));
-//
-// // On updates recompile
-// bundler.on('update', bundle);
-//
-// function bundle() {
-//     util.log('Compiling JS...');
-//
-//     return bundler.bundle()
-//         .on('error', function (err) {
-//             util.log(err.message);
-//             browserSync.notify("Browserify Error!");
-//             this.emit("end");
-//         })
-//         .pipe(exorcist(path.DEST_SRC + '/bundle.js.map'))
-//         .pipe(vinyl(path.OUT))
-//         .pipe(gulp.dest(path.DEST_SRC))
-//         .pipe(browserSync.stream({once: true}));
-// }
-//
-//
-// gulp.task('bundle', function () {
-//     gulp.watch([path.HTML, path.STYLE] , ['copy']); // When html any changes, run 'copy' task
-//     return bundle();
-// });
-//
-// /**
-//  * First bundle, then serve from the ./app directory
-//  */
-// gulp.task('default', ['copy', 'bundle'], function () {
-//     browserSync.init({
-//         server: path.DEST
-//     });
-// });

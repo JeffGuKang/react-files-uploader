@@ -27,7 +27,7 @@ var App = React.createClass({
   },
 
   showModal: function() {
-    this.refs.upload.showModal();  
+    this.refs.upload.showModal();
   },
 
   render: function() {
@@ -35,11 +35,12 @@ var App = React.createClass({
       <div>
         Hello<br />
         <button onClick={this.showModal}>FileUpload</button>
-        <img src={this.state.imgsrc}></img>
+        <img width="800" src={this.state.imgsrc}></img>
         <FileUp
+          classNameOfDropzone="dropzone"
           ref="upload"
           onDrop={this.onDrop}
-          placeholder="Choose or drag a file."
+          insideText="Choose or drag a file here."
         />
       </div>
     );
