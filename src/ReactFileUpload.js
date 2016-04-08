@@ -23,7 +23,7 @@ const customStyle = {
   }
 };
 
-var FileUp = React.createClass({
+var ModalFileUploder = React.createClass({
   getInitialState: function() {
     return {
       hidden: true
@@ -86,4 +86,4 @@ var FileUp = React.createClass({
   }
 });
 
-module.exports = FileUp;
+module.exports = ModalFileUploder;

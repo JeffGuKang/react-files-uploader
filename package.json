@@ -13,10 +13,13 @@
     "upload",
     "drop"
   ],
+  "style": "./dist/css/style.css",
+  "main": "./dist/build/ReactFileUpload.js",
   "author": "Jeff Gu Kang",
   "license": "MIT",
   "peerDependencies": {
-    "react": "^0.14.x"
+    "react": ">=0.14.0",
+    "react-dom": ">=0.14.0"
   },
   "dependencies": {
     "react-dropzone": "^3.3.2",

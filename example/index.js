@@ -1,6 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var FileUp = require('../components/ReactFileUpload');
+var ReactFileUpload = require('../src/ReactFileUpload');
 
 var appElement = document.getElementById('example');
 
@@ -36,7 +36,7 @@ var App = React.createClass({
         Hello<br />
         <button onClick={this.showModal}>FileUpload</button>
         <img width="800" src={this.state.imgsrc}></img>
-        <FileUp
+        <ReactFileUpload
           classNameOfDropzone="dropzone"
           ref="upload"
           onDrop={this.onDrop}
