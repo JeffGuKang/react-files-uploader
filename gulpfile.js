@@ -9,23 +9,6 @@ var browserSync = require('browser-sync').create();
 var exorcist    = require('exorcist'); //Externalizes the source map
 var reactify    = require('reactify');
 
-const PATH = {
-  HTML: 'app/*.html',
-  SOURCE_STYLE: 'app/style',
-  STYLE: 'app/style/*.css',
-  ALL: ['app/js/*.js', 'app/js/**/*.js', 'app/index.html'],
-  JS: ['app/js/*.js', 'app/js/**/*.js'],
-  MINIFIED_OUT: 'build.min.js',
-  OUT: 'ReactFileUpload.js',
-  DEST: 'dist',
-  DEST_BUILD: 'dist/build',
-  DEST_SRC: 'dist/scripts',
-  DEST_STYLE: 'dist/style',
-  ENTRY_POINT: './app/js/main.js',
-  JSX: './app/js',
-  EXAMPLE: '/example',
-};
-
 var getProjectName = function() {
   return require('./package.json').name;
 };
