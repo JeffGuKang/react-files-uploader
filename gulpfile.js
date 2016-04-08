@@ -23,7 +23,7 @@ var reactifyES6 = function(file) {
 
 gulp.task('build-dist-js', function() {
   browserify({
-    entries: ['/src/index.js'],
+    entries: ['src/index.js'],
     transform: [reactifyES6],
     debug: true,
     cache: {}, packageCache: {}, fullPaths: true
@@ -32,7 +32,6 @@ gulp.task('build-dist-js', function() {
   .on("error", function (err) { console.log("Error: " + err.message); })
   .pipe(vinyl('ReactFileUpload.js'))
   .pipe(gulp.dest('dist/build'))
-  .pipe(browserSync.stream({once: true}));
 });
 
 gulp.task('build-example-js', function() {
@@ -69,3 +68,4 @@ gulp.task('browser-sync', function() {
 });
 
 gulp.task('example', ['build-example-js', 'example-server']);
+gulp.task('default', ['build-dist-js']);
