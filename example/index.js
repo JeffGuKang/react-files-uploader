@@ -33,7 +33,7 @@ var App = React.createClass({
   render: function() {
     return (
       <div>
-        Hello<br />
+        ReactFileUpload Example<br />
         <button onClick={this.showModal}>FileUpload</button>
         <img width="800" src={this.state.imgsrc}></img>
         <ReactFileUpload

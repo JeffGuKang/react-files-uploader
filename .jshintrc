@@ -1,3 +1,17 @@
 {
-    "esnext": true
+  "camelcase": true,
+  "bitwise": true,
+  "freeze": true,
+  "curly": true,
+  "eqeqeq": true,
+  "nonbsp": true,
+  "immed": true,
+  "noarg": true,
+  "unused": true,
+  "undef": true,
+  "strict": true,
+  "newcap": false,
+  "node": true,
+  "browser": true,
+  "esnext": true
 }

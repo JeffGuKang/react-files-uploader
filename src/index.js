@@ -1,3 +1,3 @@
-import ReactFileUpload from './ReactFileUpload';
+var ReactFileUpload = require('./ReactFileUpload.js');
 
-export default ReactFileUpload;
+module.exports = ReactFileUpload;

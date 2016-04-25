@@ -1,0 +1,6 @@
+<svg height="110" width="250">
+  <path id="cross" />
+  <line x1="0" y1="0" x2="100" y2="100" style="stroke:rgb(99, 99, 99);stroke-width:5" />
+  <line x1="0" y1="100" x2="100" y2="0" style="stroke:rgb(99, 99, 99);stroke-width:5" />
+  Your browser does not support SVG.
+</svg>
